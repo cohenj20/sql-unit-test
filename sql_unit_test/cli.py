@@ -30,3 +30,6 @@ def report_non_sql_filetype(filename):
     click.echo(colorama.Fore.RED + f'                    Error: {filename} is not a sql file.                                       ')
     click.echo(colorama.Fore.WHITE + f'                                                                                             ')
 
+def report_test_sql_query_error(exception):
+    click.echo(colorama.Fore.RED + f'                    Error: Issue running unit test sql query. \n                    Exception msg: {exception}                                       ')
+    click.echo(colorama.Fore.WHITE + f'                                                                                             ')

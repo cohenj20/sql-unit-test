@@ -47,7 +47,7 @@ The recommended repo structure is one that models the interior structure of your
 ```
 
 
-While this the recommended unit test repo structure, the level at the root of the repository does not necessary have to be database. It is valid to split up unit tests in any number of ways. The only hard fast requirement to be able to run `sql-unit-test` is that the test directory contains *only* valid sql unit test files. 
+While this is the recommended unit test repo structure, the level at the root of the repository does not necessarily have to be database. It is valid to split up unit tests in any number of ways. The only hard fast requirement to be able to run `sql-unit-test` is that the test directory contains *only* valid sql unit test files. 
 
 ### Writing sql unit tests
 TODO

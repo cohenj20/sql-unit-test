@@ -1,17 +1,18 @@
 import click
 import colorama
 from dotenv import load_dotenv
-import logging.config
+import logging
 
 from sql_unit_test.connection import get_uri_from_env, create_connection
 from sql_unit_test.cli import init_cli, report_file_count, report_test_start, report_test_result
-from sql_unit_test.logger import LOGGING_CONFIG
+from sql_unit_test.logger import configure_logger
 from sql_unit_test.directory_check import *
 from sql_unit_test.run_tests import read_sql_file, run_test
 
 from sql_unit_test.config import TEST_FOLDER_PATH, config_check
 
-logging.config.dictConfig(LOGGING_CONFIG)
+configure_logger()
+
 logger = logging.getLogger(__name__)
 
 logger.info(f'Configured logger with LEVEL= ')

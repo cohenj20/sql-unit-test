@@ -4,7 +4,6 @@ import colorama
 import logging
 
 from sql_unit_test.cli import report_non_sql_filetype
-from sql_unit_test.logger import LOGGING_CONFIG
 
 logger = logging.getLogger(__name__)
 

@@ -20,7 +20,7 @@ if os.getenv("APP_ENV") == 'dev':
 
 else:
     if os.getenv("URI"):
-        TARGET_DIR = os.getenv("URI")
+        URI = os.getenv("URI")
 
     if os.getenv("TARGET_DIR"):
         TARGET_DIR = os.getenv("TARGET_DIR")

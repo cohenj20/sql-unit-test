@@ -8,7 +8,7 @@ from sql_unit_test.cli import report_non_sql_filetype
 logger = logging.getLogger(__name__)
 
 def ensure_sql_filetype(i, filename):
-    logger.debug(f"Filename = {filename}")
+    logger.debug(f"Filename {i+1} = {filename}")
     logger.info(f'Checking whether file {i+1} is sql file.')
     if filename[-4:] != '.sql':
         logger.debug(f"File {i+1} extension = {filename[-4:]}")

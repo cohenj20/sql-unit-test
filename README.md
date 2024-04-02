@@ -5,7 +5,7 @@ A CLI tool that permits data teams that aren't quite at the point where they can
 ## Background 
 The idea that drove the development of this tool is the notion that we should be writing unit tests for each object in our datawarehouse so that that asset is returning data that matches the expectations of the stakeholders, aka. the business requirements. Furthermore, these unit tests should be retained in some place (ideally a source controlled place) so that we can check if new developments break requirements from past developments.
 
-There are tools on the market that accomplish this goal very effectively (ex. dbt), however, for many organizations, the road to implementing dbt is a long one. In the meantime, it didn't seem like an option to simply opt out of what is (luckily) becoming a fundamental best practice in the data world. 
+There are tools on the market that accomplish this goal very effectively (ex. [dbt](https://docs.getdbt.com/)), however, for many organizations, the road to implementing dbt is a long one. In the meantime, it didn't seem like an option to simply opt out of what is (luckily) becoming a fundamental best practice in the data world. 
 
 While it may not be as convenient and quick as declaring tests in dbt, `sql-unit-test` is certainly is a big step in the right direction. 
 
@@ -47,7 +47,7 @@ The recommended repo structure is one that models the interior structure of your
 ```
 
 
-While this the recommended unit test repo structure, the level at the root of the repository does not necessary have to be database. It is valid to split up unit tests in any number of ways. The only hard fast requirement to be able to run `sql-unit-test` is that the test directory contains *only* valid sql unit test files. 
+While this is the recommended unit test repo structure, the level at the root of the repository does not necessarily have to be database. It is valid to split up unit tests in any number of ways. The only hard fast requirement to be able to run `sql-unit-test` is that the test directory contains *only* valid sql unit test files. 
 
 ### Writing sql unit tests
 TODO

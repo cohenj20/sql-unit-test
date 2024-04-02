@@ -17,9 +17,11 @@ pandas = "^2.2.1"
 pyodbc = "^5.1.0"
 sqlalchemy = "2.0.28"
 python-dotenv = "^1.0.1"
+pyyaml = "^6.0.1"
 
 [tool.poetry.scripts]
-sql-unit-test = 'sql_unit_test.main:main'
+sql-unit-test = 'sql_unit_test.main:my_commands'
+
 
 
 [build-system]

@@ -3,19 +3,22 @@ from dotenv import load_dotenv
 import os
 import logging
 
-from sql_unit_test.config import URI
+from sql_unit_test.config import locate_root_dir
+from sql_unit_test.cli import report_invalid_uri
 
 logger = logging.getLogger(__name__)
 
 from sql_unit_test.cli import report_missing_uri
 
-def get_uri_from_env():
-    logger.debug(f'URI: {URI}')
-    return URI
-
 def create_connection(uri):
     logger.info('Creating sqlalchemy connection object.')
-    con = create_engine(uri)
-    logger.info('Successfully created sqlalchemy connection object.')
+    try:
+        con = create_engine(uri)
+        logger.info('Successfully created sqlalchemy connection object.')
 
-    return con
+        return con
+
+
+    except Exception as e:
+        SystemExit(report_invalid_uri(e))
+

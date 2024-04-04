@@ -6,7 +6,7 @@ import yaml
 import subprocess
 
 from sql_unit_test.connection import create_connection
-from sql_unit_test.cli import init_cli, report_file_count, report_test_start, report_test_result
+from sql_unit_test.cli import init_cli, report_file_count, report_test_start, report_test_result, report_successful_project_initialization
 from sql_unit_test.logger import configure_logger
 from sql_unit_test.directory_check import *
 from sql_unit_test.run_tests import read_sql_file, run_test
@@ -50,9 +50,9 @@ def run(uri, target_dir, filepath):
 
             con = create_connection(uri)
 
-            test_result_df = run_test(test_sql=test_sql, con=con)
+            test_result_df, test_duration = run_test(test_sql=test_sql, con=con)
 
-            report_test_result(test_file_path=test_file_path, test_result_df=test_result_df)
+            report_test_result(test_file_path=test_file_path, test_result_df=test_result_df, test_duration=test_duration)
     
     else:
         files_list = [filepath]
@@ -74,8 +74,6 @@ def init():
     
     cwd = os.getcwd()
 
-    print(cwd)
-
     config_dict = {
         'uri' : '',
         'target_dir' : '',
@@ -92,6 +90,9 @@ def init():
 
         with open('.gitignore', 'w') as fp:
             fp.write("venv/\n.env\n**/__pycache__/\n.sql-unit-test\nsql-unit-test.yaml")
+
+        init_cli()
+        report_successful_project_initialization(cwd)
         
     else:
         SystemExit(print('This directory has already initialized as a sql-unit-test directory.'))

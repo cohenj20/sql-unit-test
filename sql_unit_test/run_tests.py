@@ -1,6 +1,7 @@
 import pandas as pd
 import logging
 import colorama
+import time
 
 from sql_unit_test.cli import report_test_sql_query_error
 
@@ -25,8 +26,12 @@ def read_sql_file(test_file_path):
 
 def run_test(test_sql, con):
     logger.info('Running sql test query.')
+    start_time = time.time()
     try:
+
         test_result = pd.read_sql(test_sql, con)
+        test_duration = round(time.time() - start_time, 2) 
+
     
     except Exception as E:
         raise SystemExit(report_test_sql_query_error(E))
@@ -34,6 +39,6 @@ def run_test(test_sql, con):
     logger.debug(f'Test result: \n{colorama.Fore.WHITE}{test_result}{colorama.Fore.CYAN}')
     logger.info('Successfully ran sql test query.')
 
-    return test_result
+    return test_result, test_duration
 
 

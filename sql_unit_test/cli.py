@@ -15,11 +15,11 @@ def report_file_count(files_list):
 def report_test_start(filename, index=0):
     click.echo(colorama.Fore.WHITE + f'                 test {index + 1}: {filename}                                                  ')
 
-def report_test_result(test_file_path: str, test_result_df):
+def report_test_result(test_file_path: str, test_result_df, test_duration):
     if test_result_df.empty:
-        click.echo(colorama.Fore.GREEN + f'                    PASS                                       ')
+        click.echo(colorama.Fore.GREEN + f'                    PASS' + colorama.Fore.LIGHTWHITE_EX  + f' [{test_duration} second(s)]                                      ')
     else:
-        click.echo(colorama.Fore.RED + f'                    FAIL                                        ')
+        click.echo(colorama.Fore.RED + f'                    FAIL' + colorama.Fore.LIGHTWHITE_EX  + f' [{test_duration} second(s)]                                      ')
         click.echo(colorama.Fore.BLUE + f'                    run file: ./tests                           ')
         click.echo(colorama.Fore.BLUE + f'                    test file: {test_file_path}                 ')
 
@@ -37,3 +37,8 @@ def report_non_sql_filetype(filename):
 def report_test_sql_query_error(exception):
     click.echo(colorama.Fore.RED + f'                    Error: Issue running unit test sql query. \n                    Exception msg: {exception}                                       ')
     click.echo(colorama.Fore.WHITE + f'                                                                                             ')
+
+def report_successful_project_initialization(cwd):
+    click.echo(f'                                                                                                                       ')
+    click.echo(colorama.Fore.GREEN + f'                              Project successfully initialized in {cwd}!                                               ')
+

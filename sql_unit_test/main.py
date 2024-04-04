@@ -11,11 +11,14 @@ from sql_unit_test.logger import configure_logger
 from sql_unit_test.directory_check import *
 from sql_unit_test.run_tests import read_sql_file, run_test
 
-from sql_unit_test.config import URI, TARGET_DIR, config_check
+from sql_unit_test.config import config_check
+from sql_unit_test.config_manager import retrieve_config_values
 
 configure_logger()
 
 logger = logging.getLogger(__name__)
+
+URI, TARGET_DIR, LOG_LEVEL = retrieve_config_values()
 
 colorama.init()
 

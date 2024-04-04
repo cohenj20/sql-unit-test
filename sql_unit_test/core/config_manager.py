@@ -18,8 +18,8 @@ def retrieve_config_values():
         app_env, uri, target_dir, log_level = parse_config_yaml(yaml_path)
 
         if app_env == 'dev':
-            URI='sqlite:///test_database.db'
-            TARGET_DIR='./playlists'
+            URI='sqlite:///sample//test_database.db'
+            TARGET_DIR='./sample/playlists'
 
             if log_level:
                 LOG_LEVEL = log_level

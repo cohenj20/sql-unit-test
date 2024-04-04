@@ -26,7 +26,7 @@ def config_check(uri, target_dir, filepath):
 
 def locate_root_dir():
     cwd = os.getcwd()
-    timeout = time.time() + 2
+    timeout = time.time() + 1
     while True:
         if 'sql-unit-test.yaml' in os.listdir('.'):
             root = os.getcwd()

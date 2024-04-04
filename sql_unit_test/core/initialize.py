@@ -22,6 +22,7 @@ URI, TARGET_DIR, LOG_LEVEL = retrieve_config_values()
 
 @click.command()
 def init():
+    """Initialize a sql unit test project directory."""
     
     cwd = os.getcwd()
 

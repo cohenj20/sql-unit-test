@@ -19,6 +19,7 @@ from sql_unit_test.core.config_manager import retrieve_config_values
 @click.option('--target_dir', help='The target directory in which run sql-unit-test. Default is the current directory from which the sql-unit-test command is run.')
 @click.option('--filepath', help='A path to a single sql unit test file.')
 def run(uri, target_dir, filepath):
+    """Execute sql unit tests, 'sql-unit-test run --help' for options."""
 
     logger = logging.getLogger(__name__)
 

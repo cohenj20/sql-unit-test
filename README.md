@@ -18,6 +18,48 @@ pip install sql-unit-test
 ```
 
 ## Usage
+### `sql-unit-test init` 
+The idea is to create one place for all of your sql unit tests. Follow the steps below to initialize a sql unit test project folder:
+
+1. If you don't already have a folder to hold your unit tests, create one and cd into it.
+
+    ```cmd
+    mkdir <your folder name>
+    cd <your folder name>
+    ```
+
+2. Then run the following command:
+    ```cmd
+    sql-unit-test init
+    ```
+    Once the initialization is complete, you should see the following output:
+    ```
+    =======================================================================================================================
+                                                    SQL Unit Test
+    =======================================================================================================================
+
+
+                                Project successfully initialized in <your folder name>!
+    ```
+3. You should see three new objects in your directory: a `.gitignore` file, a `.sql-unit-test` folder, and a `sql-unit-test.yaml` configuration file.
+
+### Configuration
+The following configuration values can be set by a user. (* = required)
+
+- `app_env`: This doesn't need to be touched unless you are a developer contributing to `sql-unit-test`.
+- `uri*`: This is a valid sqlalchemy uri string that points to the database which holds the objects you want to run unit tests against. 
+- `target_dir`: This is the directory in which to execute the `sql-unit-test run` command. *Default is the current working directory.*
+- `log_level`: This value overrides the log level used. *The default value is `WARN`.*
+
+The most convenient way to set these values is in the `sql-unit-test.yaml` at the root of the project. They can also be set at runtime by passing in the value as an option to the `sql-unit-test run` command. (ex. `sql-unit-test run --uri 'sqlite:///sample//test_database.db'`)
+
+Below is the order of operations that `sql-unit-test run` takes to find the proper config:
+1. Checks for config values passed to the command as options.
+2. Checks for `sql-unit-test.yaml` in current working directory.
+3. Walks up the folder hierarchy until it finds `sql-unit-test.yaml` in the project root or times out after searching for 1 second.
+4. Uses defaults for non-required config values.
+
+Therefore, the `uri` config value must *either* be passed as an option at runtime *or* be present in the `sql-unit-test.yaml`, as it is required and has not default value.
 
 ### Unit Test Repo Cold setup
 This tool is made to be used in a repository with a particular structure. 
@@ -52,22 +94,10 @@ While this is the recommended unit test repo structure, the level at the root of
 ### Writing sql unit tests
 TODO
 
-
-### Tool Configuration
-To get started using `sql-unit-test` in your unit test repository, create a `.env` folder at the root of the repo. The following values can be set from the `.env`.
-
-```
-URI=<valid sqlalchemy uri> 
-TARGET_DIR=<path to a valid test dir>
-LOG_LEVEL=<CRITICAL/ERROR/WARN/DEBUG/INFO> # override default log level here
-```
-
-### Running `sql-unit-test`
+### `sql-unit-test run`
 Running `sql-unit-test` is simple. 
 
-The most convenient way to run it is by setting up a .env file with your important config values, and then simply cd'ing into the desired target folder within the unit test repo and running `sql-unit-test` in the command line. 
-
-It is also, however, possible to forget about the `.env` file altogether and pass in those config values at runtime. 
+The most convenient way to run it is by setting up `sql-unit-test.yaml` the file with your important config values, and then simply cd'ing into the desired target folder within the unit test repo and running `sql-unit-test` in the command line. 
 
 Let's take a look at the usage output straight from the command line:
 
@@ -85,23 +115,19 @@ Options:
   --help             Show this message and exit.
   ```
 
-Passing in any of these options will also override config values that are set in the `.env`, if one is present in the repo.
+Passing in any of these options will also override config values that are set in the `sql-unit-test.yaml`.
 
 
 ## Contributing
 
 ### Environment setup
 1. Clone the repository in your development environment.
-2. Install [poetry](https://python-poetry.org/docs/#installation) if is not already installed in your environment.
+2. Install [poetry](https://python-poetry.org/docs/#installation) if it is not already installed in your environment.
 3. Run the `poetry install` command to install the project dependencies. 
-4. Create a `.env` file at the root of the repo, and put the following values in. 
-    ```.env
-    APP_ENV = 'dev' # Automatically sets dev uri that points at sqlite db in sample/ and target_dir to be the sample/playlists/ folder, containing a sample unit test.
-
-    LOG_LEVEL = <CRITICAL/ERROR/WARN/INFO/DEBUG> # Used to override default of WARN, if desired
-    ```
-5. Develop!
-6. To run the package use poetry: `poetry run python sql_unit_test/main.py`
+4. At the root of the repo run `poetry run python path/to/main.py init`. This will create a file called `sql-unit-test.yaml` at the root, among other things. Change the `app_env` value to be 'dev'.
+5. To adjust the log level, modify the `log_level` value in `sql-unit-test.yaml`. (Options are `CRITICAL`/`WARN`/`ERROR`/`INFO`/`DEBUG`; default is `WARN`)
+5. Get developing!
+6. To test run the package use poetry: `poetry run python path/to/main.py run` in /sample/playlists or in a unit test directory you create.
 
 ### Tests
 

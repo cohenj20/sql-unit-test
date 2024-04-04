@@ -3,8 +3,8 @@ from dotenv import load_dotenv
 import os
 import logging
 
-from sql_unit_test.config import locate_root_dir
-from sql_unit_test.cli import report_invalid_uri
+from sql_unit_test.core.config import locate_root_dir
+from sql_unit_test.cli.outputs import report_invalid_uri
 
 logger = logging.getLogger(__name__)
 

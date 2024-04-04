@@ -2,7 +2,7 @@
 import logging
 import colorama
 
-from sql_unit_test.config_manager import retrieve_config_values
+from sql_unit_test.core.config_manager import retrieve_config_values
 
 logger = logging.getLogger(__name__)
 

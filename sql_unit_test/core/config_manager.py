@@ -1,6 +1,6 @@
 import logging
 
-from sql_unit_test.config import locate_root_dir, parse_config_yaml 
+from sql_unit_test.core.config import locate_root_dir, parse_config_yaml 
 
 logger = logging.getLogger(__name__)
 
@@ -9,9 +9,11 @@ def retrieve_config_values():
     LOG_LEVEL = 'WARN'
     URI = ''
 
-    if locate_root_dir() is not None:
+    root = locate_root_dir()
+
+    if root is not None:
         
-        yaml_path = locate_root_dir() + "\sql-unit-test.yaml"
+        yaml_path = root + "\sql-unit-test.yaml"
 
         app_env, uri, target_dir, log_level = parse_config_yaml(yaml_path)
 

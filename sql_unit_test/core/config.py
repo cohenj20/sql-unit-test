@@ -4,7 +4,7 @@ import logging
 import yaml
 import time
 
-from sql_unit_test.cli import report_missing_uri
+from sql_unit_test.cli.outputs import report_missing_uri
 
 logger = logging.getLogger(__name__)
 

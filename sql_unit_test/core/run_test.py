@@ -3,7 +3,7 @@ import logging
 import colorama
 import time
 
-from sql_unit_test.cli import report_test_sql_query_error
+from sql_unit_test.cli.outputs import report_test_sql_query_error
 
 logger = logging.getLogger(__name__)
 
@@ -24,7 +24,7 @@ def read_sql_file(test_file_path):
 
     return test_sql, test_file_path
 
-def run_test(test_sql, con):
+def run_sql_unit_test(test_sql, con):
     logger.info('Running sql test query.')
     start_time = time.time()
     try:

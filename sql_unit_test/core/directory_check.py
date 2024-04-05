@@ -1,6 +1,4 @@
 import os
-import click
-import colorama
 import logging
 
 from sql_unit_test.cli.outputs import report_non_sql_filetype

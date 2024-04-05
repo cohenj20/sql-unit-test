@@ -1,9 +1,7 @@
 import click
-import colorama
 from dotenv import load_dotenv
 import logging
 import yaml
-import subprocess
 
 from sql_unit_test.core.connection import create_connection
 from sql_unit_test.cli.outputs import init_cli, report_file_count, report_test_start, report_test_result, report_successful_project_initialization

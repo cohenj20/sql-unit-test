@@ -1,6 +1,5 @@
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
-import os
 import logging
 
 from sql_unit_test.core.config import locate_root_dir

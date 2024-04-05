@@ -1,9 +1,6 @@
 import click
 import colorama
 from dotenv import load_dotenv
-import logging
-import yaml
-import subprocess
 
 from sql_unit_test.core.run import run
 from sql_unit_test.core.initialize import init

@@ -124,10 +124,10 @@ Passing in any of these options will also override config values that are set in
 1. Clone the repository in your development environment.
 2. Install [poetry](https://python-poetry.org/docs/#installation) if it is not already installed in your environment.
 3. Run the `poetry install` command to install the project dependencies. 
-4. At the root of the repo run `poetry run python path/to/main.py init`. This will create a file called `sql-unit-test.yaml` at the root, among other things. Change the `app_env` value to be 'dev'.
+4. At the root of the repo run `poetry run python path/to/commands.py init`. This will create a file called `sql-unit-test.yaml` at the root, among other things. Change the `app_env` value to be 'dev'.
 5. To adjust the log level, modify the `log_level` value in `sql-unit-test.yaml`. (Options are `CRITICAL`/`WARN`/`ERROR`/`INFO`/`DEBUG`; default is `WARN`)
 5. Get developing!
-6. To test run the package use poetry: `poetry run python path/to/main.py run` in /sample/playlists or in a unit test directory you create.
+6. To test run the package use poetry: `poetry run python path/to/commands.py run` in /sample/playlists or in a unit test directory you create.
 
 ### Tests
 

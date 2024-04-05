@@ -1,6 +1,5 @@
 import click
 import colorama
-from dotenv import load_dotenv
 
 from sql_unit_test.core.run import run
 from sql_unit_test.core.initialize import init

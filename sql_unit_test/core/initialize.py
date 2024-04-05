@@ -1,15 +1,11 @@
 import click
-from dotenv import load_dotenv
 import logging
 import yaml
 
-from sql_unit_test.core.connection import create_connection
-from sql_unit_test.cli.outputs import init_cli, report_file_count, report_test_start, report_test_result, report_successful_project_initialization
+from sql_unit_test.cli.outputs import init_cli, report_successful_project_initialization
 from sql_unit_test.core.logger import configure_logger
 from sql_unit_test.core.directory_check import *
-from sql_unit_test.core.run_test import read_sql_file, run_sql_unit_test
 
-from sql_unit_test.core.config import config_check
 from sql_unit_test.core.config_manager import retrieve_config_values
 
 configure_logger()

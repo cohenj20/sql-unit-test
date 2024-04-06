@@ -10,10 +10,10 @@ Super simple! To install sql-unit-test, it is recommended to use pip:
 pip install sql-unit-test
 ```
 
-## [Usage](test)
+## [Usage](https://cohenj20.github.io/sql-unit-test/docs/usage/)
 Check out the docs for guidance on using `sql-unit-test`. 
 
-## [Contributing](test)
+## [Contributing](https://cohenj20.github.io/sql-unit-test/docs/contributing/)
 Contribution from the any and all is welcomed and appreciated! Check out the [issues](https://github.com/cohenj20/sql-unit-test/issues) on github. If you have an idea for an enhancement, or notice something not working properly, please do open a new issue and open a pull request if you want to lend a hand!
 
 

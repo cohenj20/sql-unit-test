@@ -1,7 +1,7 @@
 ## `sql-unit-test`
 A CLI tool that permits growing data teams to adopt test driven development best practices.
 
-![logo](./assets/sql-unit-test_logo.svg)
+![logo](./docs/assets/sql-unit-test_logo.svg)
 
 ## Installion
 Super simple! To install sql-unit-test, it is recommended to use pip:

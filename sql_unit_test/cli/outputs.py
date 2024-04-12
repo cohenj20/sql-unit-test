@@ -15,13 +15,13 @@ def report_file_count(files_list):
 def report_test_start(filename, index=0):
     click.echo(colorama.Fore.WHITE + f'                 test {index + 1}: {filename}                                                  ')
 
-def report_test_result(test_file_path: str, test_result_df, test_duration):
-    if test_result_df.empty:
-        click.echo(colorama.Fore.GREEN + f'                    PASS' + colorama.Fore.LIGHTWHITE_EX  + f' [{test_duration} second(s)]                                      ')
-    else:
-        click.echo(colorama.Fore.RED + f'                    FAIL' + colorama.Fore.LIGHTWHITE_EX  + f' [{test_duration} second(s)]                                      ')
-        click.echo(colorama.Fore.BLUE + f'                    run file: ./tests                           ')
-        click.echo(colorama.Fore.BLUE + f'                    test file: {test_file_path}                 ')
+def report_passing_test_result(test_duration):
+    click.echo(colorama.Fore.GREEN + f'                    PASS' + colorama.Fore.LIGHTWHITE_EX  + f' [{test_duration} second(s)]                                      ')
+
+def report_failing_test_result(test_file_path: str, test_duration, failure_file_path):
+    click.echo(colorama.Fore.RED + f'                    FAIL' + colorama.Fore.LIGHTWHITE_EX  + f' [{test_duration} second(s)]                                      ')
+    click.echo(colorama.Fore.BLUE + f'                    failure file: {failure_file_path}                           ')
+    click.echo(colorama.Fore.BLUE + f'                    test file: {test_file_path}                 ')
 
 def report_missing_uri():
     click.echo(colorama.Fore.RED + f'                    Error: No database URI was provided. Add one to the sql-unit-test.yaml file or pass the --uri option to sql-unit-test')

@@ -81,7 +81,7 @@ TODO
 ## `sql-unit-test run`
 Running `sql-unit-test` is simple. 
 
-The most convenient way to run it is by setting up `sql-unit-test.yaml` the file with your important config values, and then simply cd'ing into the desired target folder within the unit test repo and running `sql-unit-test` in the command line. 
+The most convenient way to run it is by setting up `sql-unit-test.yaml` the file with your important config values, and then simply cd'ing into the desired target folder within the unit test repo and running `sql-unit-test run` in the command line. 
 
 Let's take a look at the usage output straight from the command line:
 
@@ -97,6 +97,6 @@ Options:
                      command is run.
   --filepath TEXT    A path to a single sql unit test file.
   --help             Show this message and exit.
-  ```
+```
 
 Passing in any of these options will also override config values that are set in the `sql-unit-test.yaml`.

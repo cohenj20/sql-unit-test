@@ -26,6 +26,9 @@ sql-unit-test = 'sql_unit_test.cli.commands:my_commands'
 
 
 
+[tool.poetry.group.dev.dependencies]
+commitizen = "^3.22.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

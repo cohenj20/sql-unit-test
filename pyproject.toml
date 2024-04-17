@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sql-unit-test"
-version = "0.1.0"
+version = "0.0.1"
 description = "A CLI tool for executing sql unit tests."
 authors = ["cohenj20 <cohenj20@sacredheart.edu>"]
 readme = "README.md"

@@ -20,4 +20,3 @@ jobs:
         uses: commitizen-tools/commitizen-action@master
         with:
           github_token: ${{ secrets.SQL_UNIT_TEST_PAC }}
-           

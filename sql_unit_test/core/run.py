@@ -18,9 +18,7 @@ from sql_unit_test.core.config_manager import retrieve_config_values
 def run(uri, target_dir, filepath):
     """Execute sql unit tests, 'sql-unit-test run --help' for options."""
 
-    logger = logging.getLogger(__name__)
-
-    URI, TARGET_DIR, LOG_LEVEL = retrieve_config_values()
+    URI, TARGET_DIR, _ = retrieve_config_values()
 
     init_cli()
 

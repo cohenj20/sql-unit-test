@@ -19,4 +19,4 @@ jobs:
       - name: Create bump and changelog
         uses: commitizen-tools/commitizen-action@master
         with:
-          github_token: ${{ secrets.SQL_UNIT_TEST_PA }}
+          github_token: ${{ secrets.SQL_UNIT_TEST_PAC }}

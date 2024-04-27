@@ -44,7 +44,6 @@ def run(uri, target_dir, filepath):
             test_result_df, test_duration = run_sql_unit_test(test_sql=test_sql, con=con)
 
             handle_test_result(test_result_df=test_result_df, test_duration=test_duration, test_filename=f, test_file_path=test_file_path)
-
     
     else:
         files_list = [filepath]

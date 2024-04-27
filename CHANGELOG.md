@@ -1,3 +1,9 @@
+## 0.1.1 (2024-04-27)
+
+### Fix
+
+- update github actions files
+
 ## 0.1.0 (2024-04-17)
 
 ### Feat

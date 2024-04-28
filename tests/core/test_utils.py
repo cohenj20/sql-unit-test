@@ -1,7 +1,10 @@
-from ast import Not
 import pytest
+import os
+import glob
 
-from sql_unit_test.core.utils import parse_filename
+from sql_unit_test.core.utils import parse_filename, clean_run_dir
+from sql_unit_test.core.config import locate_root_dir
+
 
 
 def test_parse_filename():
@@ -14,3 +17,16 @@ def test_parse_filename():
     
     with pytest.raises(Exception):
         parse_filename(not_a_string)
+
+
+def test_clean_run_dir():
+    root = locate_root_dir()
+    os.chdir(root)
+
+    open('./.sql-unit-test/runs/test_file.json', 'w')
+
+    failure_files = clean_run_dir()
+
+    assert failure_files == ['./.sql-unit-test/runs\\test_file.json']
+
+    assert glob.glob(f'./.sql-unit-test/runs/*') == []

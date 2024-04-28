@@ -4,6 +4,7 @@ import colorama
 import time
 import json
 import time
+import os
 
 from sql_unit_test.cli.outputs import report_failing_test_result, report_passing_test_result, report_test_sql_query_error
 from sql_unit_test.core.config import locate_root_dir
@@ -78,13 +79,13 @@ def create_failure_file(test_results, test_duration, test_filename):
 def handle_test_result(test_result_df, test_duration, test_filename, test_file_path):
     if test_result_df.empty:
         logger.info('Sql unit test PASSED.')
-        report_passing_test_result(test_file_path=test_file_path, test_duration=test_duration)
+        report_passing_test_result(test_duration=test_duration)
         
     else:
         logger.info('Sql unit test FAILED.')
         failure_file_path = create_failure_file(test_results=test_result_df, test_filename=test_filename, test_duration=test_duration)
 
-        report_failing_test_result(test_file_path=test_file_path, failure_file_path=failure_file_path, test_duration=test_duration)
+        report_failing_test_result(test_file_path=os.path.normpath(test_file_path), failure_file_path=os.path.normpath(failure_file_path), test_duration=test_duration)
 
 
 

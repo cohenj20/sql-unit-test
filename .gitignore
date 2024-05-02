@@ -3,3 +3,4 @@ venv/
 **/__pycache__/
 .sql-unit-test
 sql-unit-test.yaml
+dist/

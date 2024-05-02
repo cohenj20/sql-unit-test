@@ -21,8 +21,6 @@ pyyaml = "^6.0.1"
 [tool.poetry.scripts]
 sql-unit-test = 'sql_unit_test.cli.commands:my_commands'
 
-
-
 [tool.poetry.group.dev.dependencies]
 commitizen = "^3.22.0"
 mkdocs = "^1.5.3"
